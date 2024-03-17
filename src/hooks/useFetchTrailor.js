@@ -15,7 +15,7 @@ const useFetchTrailor = ({ id }) => {
       filterJson.length !== 0
         ? filterJson[0]
         : json.results.filter((item) => item.type === "Teaser");
-    const trailor="https://www.youtube.com/embed/" + selectedTrailor.key+"?&autoplay=1&mute=1"
+    const trailor="https://www.youtube.com/embed/" + selectedTrailor.key+"?autohide=1&mute=1&showinfo=0&controls=0&autoplay=1"
     dispatch(
       addTrailor(trailor)
     );

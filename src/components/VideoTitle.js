@@ -1,6 +1,6 @@
 const VideoTitle = (props) => {
   return (
-    <div className="py-[20%] px-16 flex flex-col gap-4 text-white absolute bg-gradient-to-r z-10 from-black">
+    <div className="w-full aspect-video pt-[20%] px-16 flex flex-col gap-4 text-white absolute bg-gradient-to-r from-black">
       <h2 className="text-5xl font-bold">{props.title}</h2>
       <p className="w-1/3">{props.overview}</p>
       <div className="flex gap-3 font-medium">

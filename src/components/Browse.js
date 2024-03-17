@@ -1,21 +1,30 @@
 import Header from "./Header";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies"
-import usePopularMovies from "../hooks/usePopularMovies"
-import useTopRatedMovies from "../hooks/useTopRatedMovies"
-import useUpcomingMovies from "../hooks/useUpcomingMovies"
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import PrimaryContainer from "./PrimaryContainer";
-import SecondaryContainer from "./SecondaryContainer"
+import SecondaryContainer from "./SecondaryContainer";
+import Search from "./Search";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  useNowPlayingMovies()
-  usePopularMovies()
-  useTopRatedMovies()
-  useUpcomingMovies()
+  const searchToggle = useSelector((state) => state.ai.searchShow);
+  useNowPlayingMovies();
+  usePopularMovies();
+  useTopRatedMovies();
+  useUpcomingMovies();
   return (
     <div>
       <Header />
-      <PrimaryContainer />
-      <SecondaryContainer />
+      {searchToggle ? (
+        <Search />
+      ) : (
+        <>
+          <PrimaryContainer />
+          <SecondaryContainer />
+        </>
+      )}
     </div>
   );
 };

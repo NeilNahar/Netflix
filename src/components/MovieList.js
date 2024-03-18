@@ -1,7 +1,7 @@
 import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
-  console.log(props);
+  // if(!props.poster_path) return null
   return (
     <div className="flex flex-col gap-8">
       <p className="text-xl text-white font-semibold">{props.title}</p>

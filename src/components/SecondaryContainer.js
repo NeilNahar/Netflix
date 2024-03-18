@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const SecondaryContainer = () => {
   const movies = useSelector((state) => state.movie);
-  console.log(movies)
   return (
     movies && (
       <div className="bg-black">

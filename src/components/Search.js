@@ -1,4 +1,5 @@
 import SearchBar from "./SearchBar";
+import AiMoviesResult from "./AiMoviesResult";
 const Search = () => {
   return (
     <div>
@@ -8,6 +9,7 @@ const Search = () => {
         alt="backgroundImage"
       />
       <SearchBar />
+      <AiMoviesResult />
     </div>
   );
 };

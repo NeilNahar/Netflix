@@ -1,11 +1,12 @@
 import { options } from "../utils/constant";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addUpcomingMovies } from "../utils/movieSlice";
 
 const useUpcomingMovies = () => {
   const dispatch = useDispatch();
-  const upcomingMovies = async () => {
+  const upcomingMovies = useSelector((state) => state.movie.upcomingMovies)
+  const upcomingMoviesFetch = async () => {
     const data = await fetch(
       "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
       options
@@ -14,7 +15,7 @@ const useUpcomingMovies = () => {
     dispatch(addUpcomingMovies(json.results));
   };
   useEffect(() => {
-    upcomingMovies();
+    !upcomingMovies && upcomingMoviesFetch();
   }, []);
 };
 

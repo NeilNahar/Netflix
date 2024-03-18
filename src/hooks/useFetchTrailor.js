@@ -1,11 +1,12 @@
 import { options } from "../utils/constant";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addTrailor } from "../utils/movieSlice";
 
 const useFetchTrailor = ({ id }) => {
   const TrailorURL =
     "https://api.themoviedb.org/3/movie/" + id + "/videos?language=en-US";
+  const trailor = useSelector((state) => state.movie.trailor)
   const dispatch = useDispatch();
   const movieTrailor = async () => {
     const data = await fetch(TrailorURL, options);
@@ -21,7 +22,7 @@ const useFetchTrailor = ({ id }) => {
     );
   };
   useEffect(() => {
-    movieTrailor();
+    !trailor && movieTrailor();
   }, []);
 };
 

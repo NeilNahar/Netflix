@@ -29,10 +29,8 @@ const Header = () => {
   const Signout = () => {
     signOut(auth)
       .then(() => {
-        console.log("Signout successful");
       })
       .catch((error) => {
-        console.log("Error Occured");
       });
   };
   return (
